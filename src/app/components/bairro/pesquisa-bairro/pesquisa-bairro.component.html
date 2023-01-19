@@ -1,0 +1,51 @@
+<div class="flex justify-content-between">
+    <h3>Pesquisa de Bairros</h3>
+    <a pButton label="Cadastrar" styleClass="p-button-sm" class="p-button-sm" icon="pi pi-plus mr-2"
+    routerLink="/bairros/cadastro"></a>
+</div>
+<div class="card shadow-3 mt-4 mb-4 p-0">
+  <p-table [value]="bairroArray" [responsive]="true" [paginator]="true" [lazy]="true"
+  [rows]="filtro.itensPorPagina" [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" 
+    #tabela class="w-100">
+            <ng-template pTemplate="header">
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th class="col-acoes-header"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-bairro>
+                <tr>
+                    <td [style]="{'text-align':'center'}">
+                      <span class="p-column-title">ID</span>
+                      {{ bairro.id }}
+                    </td>
+                    <td [style]="{'width': '800px'}">
+                      <span class="p-column-title">Nome</span>
+                      {{ bairro.nome}}
+                    </td>
+                    <td class="col-acoes p-1 justify-content-between">
+                      <a pButton pRipple type="button" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                      styleClass="p-button-sm" class="p-button-raised p-button-info p-button-text"
+                      [routerLink]="['/bairros', bairro.id]"></a>
+                      <button pButton pRipple icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                      styleClass="p-button-sm" class="p-button-raised p-button-danger p-button-text"
+                      (click)="confirmarExclusao(bairro)"></button>
+                    </td>
+                  </tr>
+            </ng-template>
+        <ng-template  pTemplate="emptymessage">
+              <tr>
+                <td colspan="3">
+                  <span>Nenhum registro encontrado</span>
+                </td>
+              </tr>
+        </ng-template>
+         <ng-template pTemplate="summary">
+              <div class="">
+                Totalizador: {{ totalRegistros }}
+              </div>
+         </ng-template>
+    </p-table>
+</div>
+

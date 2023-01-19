@@ -1,0 +1,164 @@
+<div class="grid  md:justify-content-between">
+    <div class="col-12 md:col-8">
+        <h3>Cadastro de Cliente</h3>
+        <small class="text-left"> * - para campos obrigatórios</small>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-breadcrumb [model]="items"></p-breadcrumb>
+    </div>
+</div>
+<div class="container-legacy mt-4 mb-4 shadow-2">
+    <p-panel>
+        <ng-template pTemplate="header">
+            <label for=""><strong>ID</strong></label>
+            <p-tag styleClass="ml-2" severity="info" value="000001"></p-tag>
+        </ng-template>       
+        <ng-template pTemplate="icons">
+            <p-inputSwitch></p-inputSwitch>
+        </ng-template>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-5 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full"> 
+                    <label for="float-input" class="obrigatorio">Nome</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-4 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full"> 
+                    <label for="float-input" class="obrigatorio">Nome Reduzido</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-3" style="margin-top: -10px !important">
+                <label>Tipo de Pessoa</label>
+                <div class="formgrid grid p-1">
+                    <div class="field-radiobutton col-12 md:col-6">  
+                        <p-radioButton name="tipopessoa" [(ngModel)]="tipopessoa" value="fisica"></p-radioButton>
+                        <label for="fisica">Física</label>
+                    </div>
+                    <div class="field-radiobutton col-12 md:col-6">
+                        <p-radioButton name="tipopessoa" [(ngModel)]="tipopessoa" value="juridica"></p-radioButton>
+                        <label for="juridica">Jurídica</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-fluid formgrid grid">
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="99/99/9999" class="w-full"></p-inputMask>
+                    <label for="float-input" class="obrigatorio">Nascimento</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-dropdown [options]="genero" optionLabel="name" class="w-full"></p-dropdown>
+                    <label for="float-input" class="obrigatorio">Gênero</label>
+                </span>
+            </div> 
+            <div class="field col-12 md:col-4 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full" maxlength="50"> 
+                    <label for="float-input" class="obrigatorio">E-mail</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="(99) 99999-9999" class="w-full"></p-inputMask>
+                    <label for="float-input">Celular</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="(99) 9999-9999" class="w-full"></p-inputMask>
+                    <label for="float-input">Telefone</label>
+                </span>
+            </div>
+        </div> 
+        <div class="grid">
+            <div class="col-12 md:col-4">
+                <p-divider [align]="'left'">
+                    <div class="p-d-inline-flex">
+                        <i class="pi pi-id-card p-1"></i>
+                        <b>Dados Pessoais</b>
+                    </div>
+                </p-divider>
+                <div class="p-fluid formgrid grid">   
+                    <div class="field col-12 p-3">
+                        <span class="p-float-label">
+                            <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
+                            <label for="float-input" class="obrigatorio">CPF</label>
+                        </span>
+                    </div>    
+                    <div class="field col-12 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="13"> 
+                            <label for="float-input">RG</label>
+                        </span>
+                    </div>  
+                    <div class="field col-12 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="13"> 
+                            <label for="float-input">CNH</label>
+                        </span>
+                    </div>   
+                </div> 
+            </div>  
+            <div class="col-12 md:col-8">
+                <p-divider [align]="'left'">
+                    <div class="p-d-inline-flex">
+                        <i class="pi pi-building p-1"></i>
+                        <b>Endereço</b>
+                    </div>
+                </p-divider>
+                <div class="p-fluid formgrid grid"> 
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <p-inputMask mask="99.999-999" class="w-full"></p-inputMask>
+                            <label for="float-input">Pesquisa por CEP</label>
+                        </span>
+                    </div>     
+                    <div class="field col-12 md:col-7 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="50"> 
+                            <label for="float-input">Logradouro</label>
+                        </span>
+                    </div>    
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="50"> 
+                            <label for="float-input">Número</label>
+                        </span>
+                    </div>  
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="50"> 
+                            <label for="float-input">Bairro</label>
+                        </span>
+                    </div>   
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full" maxlength="50"> 
+                            <label for="float-input">Cidade</label>
+                        </span>
+                    </div> 
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <textarea [rows]="1" [cols]="60" pInputTextarea [autoResize]="autoResize"></textarea>
+                            <label for="float-input">Complemento</label>
+                        </span>
+                    </div>    
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <textarea [rows]="1" [cols]="60" pInputTextarea [autoResize]="autoResize"></textarea>
+                            <label for="float-input">Ponto de Referência</label>
+                        </span>
+                    </div>  
+                </div> 
+            </div> 
+        </div>
+        <ng-template pTemplate="footer">
+            <button pButton pRipple type="button" label="Salvar" class="p-button-raised p-button-success p-button-text"></button>
+        </ng-template>  
+    </p-panel>
+</div>

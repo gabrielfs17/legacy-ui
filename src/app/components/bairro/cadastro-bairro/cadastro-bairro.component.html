@@ -1,0 +1,31 @@
+<div class="grid  md:justify-content-between">
+    <div class="col-12 md:col-8">
+        <h3> {{editando? 'Edição': 'Cadastro'}} de Bairro</h3>
+        <small class="text-left"> * - para campos obrigatórios</small>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-breadcrumb [model]="items"></p-breadcrumb>
+    </div>
+</div>
+<div class="container-legacy mt-4 mb-4 shadow-2">
+   <form #bairroForm="ngForm" (ngSubmit)="salvar(bairroForm)">
+    <p-panel>
+        <ng-template pTemplate="header">
+            <p-tag *ngIf="editando == true" styleClass="ml-2" severity="info" value="ID {{bairroModel.id}}"></p-tag>
+        </ng-template>       
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-12 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full" 
+                    name="nome" #nome="ngModel" [(ngModel)]="bairroModel.nome"> 
+                    <label for="float-input" class="obrigatorio">Nome</label>
+                </span>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <button pButton pRipple type="submit" label="Salvar" class="p-button-raised p-button-success p-button-text"
+            [disabled]="bairroForm.invalid"></button>
+        </ng-template>  
+    </p-panel>
+  </form>
+</div>
