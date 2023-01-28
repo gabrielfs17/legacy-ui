@@ -34,6 +34,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PesquisaCidadeComponent } from './components/cidade/pesquisa-cidade/pesquisa-cidade.component';
 import { CadastroCidadeComponent } from './components/cidade/cadastro-cidade/cadastro-cidade.component';
 import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { FuncionariosComponent } from './components/funcionarios/funcionarios.co
     SharedModule,
     ToastModule,
     ConfirmDialogModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

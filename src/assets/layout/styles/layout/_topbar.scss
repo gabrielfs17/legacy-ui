@@ -11,22 +11,16 @@
     display: flex;
     align-items: center;
     box-shadow: 0px 3px 5px rgba(0,0,0,.02), 0px 0px 2px rgba(0,0,0,.05), 0px 1px 4px rgba(0,0,0,.08);
-<<<<<<< HEAD
 
-=======
->>>>>>> adcionado funcionarios e ajuste nos layouts
     .layout-topbar-logo {
         display: flex;
         align-items: center;
         color: var(--surface-900);
         font-size: 1.5rem;
-<<<<<<< HEAD
         font-weight: 500;
         width: 300px;
-=======
         font-weight: 400;
         width: 130px;
->>>>>>> adcionado funcionarios e ajuste nos layouts
         border-radius: 12px;
 
         img {
@@ -87,17 +81,11 @@
         padding: 0;
         list-style: none;
         display: flex;
-<<<<<<< HEAD
-
-        .layout-topbar-button {
-            margin-left: 1rem;
-=======
         
 
         .layout-topbar-button {
             margin-left: 1rem;
             
->>>>>>> adcionado funcionarios e ajuste nos layouts
         }
     }
 }
@@ -114,20 +102,14 @@
         .layout-menu-button {
             margin-left: 0;
             order: 1;
-<<<<<<< HEAD
-=======
            
->>>>>>> adcionado funcionarios e ajuste nos layouts
         }
 
         .layout-topbar-menu-button {
             display: inline-flex;
             margin-left: 0;
             order: 3;
-<<<<<<< HEAD
-=======
            
->>>>>>> adcionado funcionarios e ajuste nos layouts
         }
 
         .layout-topbar-menu {
@@ -144,11 +126,8 @@
             display: none;
             -webkit-animation: scalein 0.15s linear;
             animation: scalein 0.15s linear;
-<<<<<<< HEAD
-=======
            
             
->>>>>>> adcionado funcionarios e ajuste nos layouts
 
             &.layout-topbar-menu-mobile-active {
                 display: block
