@@ -33,6 +33,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PesquisaCidadeComponent } from './components/cidade/pesquisa-cidade/pesquisa-cidade.component';
 import { CadastroCidadeComponent } from './components/cidade/cadastro-cidade/cadastro-cidade.component';
+import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CadastroCidadeComponent } from './components/cidade/cadastro-cidade/cad
     PesquisaClienteComponent,
     PesquisaCidadeComponent,
     CadastroCidadeComponent,
+    FuncionariosComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,9 @@
         </ng-template>       
         <ng-template pTemplate="icons">
             <p-inputSwitch></p-inputSwitch>
+            <label for=""><strong>Novos Cliente</strong></label>
+        </ng-template>       
+        <ng-template pTemplate="icons">
         </ng-template>
         <div class="formgrid grid">
             <div class="field col-12 md:col-5 p-3">
@@ -24,6 +27,7 @@
                 </span>
             </div>
             <div class="field col-12 md:col-4 p-3">
+            <div class="field col-12 md:col-3 p-3">
                 <span class="p-float-label">
                     <input type="text" pInputText class="w-full"> 
                     <label for="float-input" class="obrigatorio">Nome Reduzido</label>
@@ -41,6 +45,19 @@
                         <label for="juridica">Jurídica</label>
                     </div>
                 </div>
+            
+
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="(99) 99999-9999" class="w-full"></p-inputMask>
+                    <label for="float-input">Celular</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="(99) 9999-9999" class="w-full"></p-inputMask>
+                    <label for="float-input">Telefone</label>
+                </span>
             </div>
         </div>
         <div class="p-fluid formgrid grid">
@@ -50,6 +67,7 @@
                     <label for="float-input" class="obrigatorio">Nascimento</label>
                 </span>
             </div>
+<<<<<<< HEAD
             <div class="field col-12 md:col-2 p-3">
                 <span class="p-float-label">
                     <p-dropdown [options]="genero" optionLabel="name" class="w-full"></p-dropdown>
@@ -156,6 +174,49 @@
                     </div>  
                 </div> 
             </div> 
+=======
+
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full" maxlength="50"> 
+                    <label for="float-input" class="obrigatorio">naturalidade</label>
+                </span>
+            </div>
+
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full" maxlength="50"> 
+                    <label for="float-input" class="obrigatorio">Endereço</label>
+                </span>
+            </div>
+
+            <div class="field col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
+                    <label for="float-input" class="obrigatorio">CPF</label>
+                </span>
+            </div>    
+            <div class="field col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full" maxlength="13"> 
+                    <label for="float-input">RG</label>
+                </span>
+            </div> 
+            
+            <div class="field col-12 md:col-2" style="margin-top: -10px !important">
+                <label>Tipo de Pessoa</label>
+                <div class="formgrid grid p-1">
+                    <div class="field-radiobutton col-12 md:col-4">  
+                        <p-radioButton name="tipopessoa" [(ngModel)]="tipopessoa" value="fisica"></p-radioButton>
+                        <label for="fisica">Física</label>
+                    </div>
+                    <div class="field-radiobutton col-12 md:col-3">
+                        <p-radioButton name="tipopessoa" [(ngModel)]="tipopessoa" value="juridica"></p-radioButton>
+                        <label for="juridica">Jurídica</label>
+                    </div>
+                </div>
+            </div>
+>>>>>>> adcionado funcionarios e ajuste nos layouts
         </div>
         <ng-template pTemplate="footer">
             <button pButton pRipple type="button" label="Salvar" class="p-button-raised p-button-success p-button-text"></button>
