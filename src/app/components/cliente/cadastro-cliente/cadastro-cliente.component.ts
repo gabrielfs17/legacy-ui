@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Cliente } from '../../models/cliente';
+import { Endereco } from '../../models/endereco';
+import { ClienteService } from '../../services/endereco.service';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -7,16 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroClienteComponent implements OnInit {
 
-  genero:any = [];
   items:any = [];
-  tipopessoa: string = '';
-  autoResize:boolean = true;
+  cliente: Cliente = new Cliente();
+  tabelaEnderecos:Endereco[]
+  visualizarModal:boolean;
 
-  constructor() {
-      this.genero.push({name:'Masculino', value: 0});
-      this.genero.push({name:'Feminino', value: 1});
-      this.genero.push({name:'Indefinido', value: 2});
-
+  constructor(
+    private clienteService:ClienteService,
+    private router:Router
+    )
+    
+    {
       this.items = [
         {label: 'Cadastro de Clientes'},
         {label: 'Clientes', routerLink: '/clientes'},
@@ -25,7 +30,34 @@ export class CadastroClienteComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.listarEnderecos();
+  }
+
+  listaClientes(){
+    this.router.navigate(['/clientes'])
+  }
+
+  listarEnderecos() {
+    this.clienteService.findAllEnderecos().subscribe((data) => {
+      this.tabelaEnderecos = data;
+      console.log(this.tabelaEnderecos);
+    });
+  }
+
+  salvarCliente(){
+    this.clienteService.createClientes(this.cliente)
+    .subscribe(data => {
+      console.log(data)
+      this.listaClientes();
+    })
+  }
+
+  AbrirModal() {
+    this.visualizarModal = true;
+}
+
+  onSubmit(){
+    this.salvarCliente()
   }
 
 }

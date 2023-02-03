@@ -15,7 +15,7 @@
     </ng-template>
 
  <div class="formgrid grid">  
-    <div class="field col-12 md:col-4 p-3">
+    <div class="field col-12 md:col-2 p-3">
         <span class="p-float-label">
             <input type="text" pInputText class="w-full"> 
             <label for="float-input" class="obrigatorio">Nome</label>
@@ -24,7 +24,13 @@
     <div class="field col-12 md:col-2 p-3">
         <span class="p-float-label">
             <input type="text" pInputText class="w-full"> 
-            <label for="float-input" class="obrigatorio">CPF/CNPJ</label>
+            <label for="float-input" class="obrigatorio">CPF</label>
+        </span>
+    </div>
+    <div class="field col-12 md:col-2 p-3">
+        <span class="p-float-label">
+            <input type="text" pInputText class="w-full"> 
+            <label for="float-input" class="obrigatorio">CNPJ</label>
         </span>
     </div>
     <div class="field col-12 md:col-2 p-3">
@@ -58,24 +64,102 @@
                 <div class="field col-12 md:col-6 p-3">
                     <div class="p-inputgroup">
                      <input disabled type="text" pInputText  placeholder="Endereços">
-                     <button type="button" pButton pRipple icon="pi pi-search"></button>     
+                     <button type="button" (click)="AbrirModal()"  pButton pRipple icon="pi pi-search"></button>     
                     </div>
                 </div>
+
+            <p-dialog 
+                header="Endereços" 
+                [(visible)]="visualizarModal" 
+                [modal]="true" 
+                [style]="{width: '50vw'}"
+                [draggable]="false" 
+                [resizable]="false">
+
+            <div style="text-align: left">
+                <i class=""
+                style="margin:4px 4px 0 0"> </i>
+                <input 
+                type="text" pInputText
+                [style]="{'width': '100%'}"
+                placeholder="Pesquisar"
+                (input)= "myTab.filterGlobal($event.target.value, 'contains')"
+                style="width:fit-content" />
+            </div>
+            <br>
+
+            <p-table 
+            [responsive]="true" 
+            [rows]="8" [paginator]="true" 
+            class="w-100"
+            #myTab [value]="tabelaEnderecos"
+            [scrollable]="false"
+            [(selection)]="tabelaEnderecos"
+            selectionMode="single"
+            [globalFilterFields]="['id', 'nome','naturalidade','telefone1','cnpj']" 
+            [paginator]="true" class="w-100">
+            <ng-template pTemplate="header">
+                   <tr>
+                    <th>ID</th>
+                    <th>CEP</th>
+                    <th>Bairro</th>
+                    <th>Municipio</th>
+                    <th>Telefone</th>
+                    <th class="col-acoes-header"></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-clientes>
+                  <tr [pSelectableRow]="clientes"  (click)="visualizarModal = false">
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">ID</span>
+                        {{ clientes.id }}
+                      </td>
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">CEP</span>
+                        {{ clientes.cep}}
+                      </td>
+  
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Bairro</span>
+                        {{ clientes.bairro}}
+                      </td>
+  
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Estado</span>
+                        {{ clientes.estado.nomeEstado}}
+                      </td>
+  
+                      <td colspan="9" [style]="{'width': '200px'}">
+                        <span class="p-column-title">Cidade</span>
+                        {{ clientes.cidade.nomeMunicipio}}
+                      </td>
+                   
+                    </tr>
+              </ng-template>
+          <ng-template  pTemplate="emptymessage">
+                <tr>
+                  <td colspan="9">
+                    <span>Nenhum registro encontrado</span>
+                  </td>
+                </tr>
+          </ng-template>
+           <ng-template pTemplate="summary">
+                <div class="">
+                  Totalizador: {{ myTab.totalRecords }}
+                </div>
+           </ng-template>
+      </p-table>
+                    
+
+               
+
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="visualizarModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+        </p-dialog>
                 
         </div>
     </p-fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </p-panel>       
      

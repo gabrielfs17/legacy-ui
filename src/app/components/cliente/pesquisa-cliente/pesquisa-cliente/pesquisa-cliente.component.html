@@ -3,47 +3,85 @@
     <a pButton label="Cadastrar" styleClass="p-button-sm" class="p-button-sm" icon="pi pi-plus mr-2"
     routerLink="/clientes/cadastro"></a>
 </div>
-<div class="card shadow-3 mt-4 mb-4 p-0">
-    <p-table [value]="clienteArray" [responsive]="true" [rows]="5" [paginator]="true" class="w-100">
+
+<div style="text-align: left">
+  <i class=""
+     style="margin:4px 4px 0 0"> </i>
+  <input type="text" pInputText
+         [style]="{'width': '100%'}"
+         placeholder="Pesquisar"
+         (input)= "myTab.filterGlobal($event.target.value, 'contains')"
+         style="width:fit-content" />
+  </div>
+  
+  <div class="card shadow-3 mt-4 mb-4 p-0">
+    <p-table [responsive]="true" [rows]="8" [paginator]="true" class="w-100"
+    #myTab [value]="clientesTable"
+    [scrollable]="false"
+    [globalFilterFields]=
+    "['id', 'nome','naturalidade','telefone1','cnpj']" [paginator]="true" class="w-100">
             <ng-template pTemplate="header">
-                <tr>
-                  <th>ID</th>
-                  <th>Nome Cliente</th>
-                  <th class="col-acoes-header"></th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-cliente>
-                <tr>
-                    <td [style]="{'width': '800px'}">
-                      <span class="p-column-title">ID</span>
-                      {{ cliente.id }}
-                    </td>
-                    <td [style]="{'width': '800px'}">
-                      <span class="p-column-title">Nome Cliente</span>
-                      {{ cliente.nome}}
-                    </td>
-                    <td class="col-acoes p-1 justify-content-between">
-                      <a pButton pRipple type="button" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
-                      styleClass="p-button-sm" class="p-button-raised p-button-info p-button-text"
-                      [routerLink]="['/clientes', cliente.id]"></a>
-                      <button pButton pRipple icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
-                      styleClass="p-button-sm" class="p-button-raised p-button-danger p-button-text"
-                      ></button>
-                    </td>
+  
+                  <tr >
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Naturalidade</th>
+                    <th>CNPJ</th>
+                    <th>Telefone</th>
+                    <th class="col-acoes-header"></th>
                   </tr>
-            </ng-template>
-            <ng-template  pTemplate="emptymessage">
-              <tr>
-                <td colspan="3">
-                  <span>Nenhum registro encontrado</span>
-                </td>
-              </tr>
-            </ng-template>
-            <ng-template pTemplate="summary">
-              <div class="">
-                  Totalizador: 3
-              </div>
-            </ng-template>
-    </p-table>
-</div>
+              </ng-template>
+              <ng-template pTemplate="body" let-clientes>
+                  <tr>
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">ID</span>
+                        {{ clientes.id }}
+                      </td>
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Descrição</span>
+                        {{ clientes.nome}}
+                      </td>
+  
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">naturalidade</span>
+                        {{ clientes.naturalidade}}
+                      </td>
+  
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">CNPJ</span>
+                        {{ clientes.cnpj}}
+                      </td>
+  
+                      <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Telefone</span>
+                        {{ clientes.telefone1}}
+                      </td>
+
+                      <td class="col-acoes p-1 justify-content-between">
+                        <a pButton pRipple type="button" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-info p-button-text"
+                        [routerLink]="['/clientes', clientes.id]"></a>
+                        <button pButton pRipple icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-danger p-button-text"
+                        ></button>
+                      </td>
+  
+                   
+                    </tr>
+              </ng-template>
+          <ng-template  pTemplate="emptymessage">
+                <tr>
+                  <td colspan="9">
+                    <span>Nenhum registro encontrado</span>
+                  </td>
+                </tr>
+          </ng-template>
+           <ng-template pTemplate="summary">
+                <div class="">
+                  Totalizador: {{ myTab.totalRecords }}
+                </div>
+           </ng-template>
+      </p-table>
+  </div>
+
 
