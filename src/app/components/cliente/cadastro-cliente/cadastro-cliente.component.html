@@ -1,165 +1,265 @@
-<div class="grid  md:justify-content-between">
-    <div class="col-12 md:col-8">
-        <h3>Cadastro de Cliente</h3>
-        <small class="text-left"> * - para campos obrigatórios</small>
-    </div>
-    <div class="col-12 md:col-4">
-        <p-breadcrumb [model]="items"></p-breadcrumb>
-    </div>
-</div>
-
-<div class="container-legacy mt-4 mb-4 shadow-2">
-  <p-panel>
-    <ng-template pTemplate="header">
-        <label><strong>Cliente</strong></label>
-    </ng-template>
-
- <div class="formgrid grid">  
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <input type="text" pInputText class="w-full"> 
-            <label for="float-input" class="obrigatorio">Nome</label>
-        </span>
-    </div>
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <input type="text" pInputText class="w-full"> 
-            <label for="float-input" class="obrigatorio">CPF</label>
-        </span>
-    </div>
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <input type="text" pInputText class="w-full"> 
-            <label for="float-input" class="obrigatorio">CNPJ</label>
-        </span>
-    </div>
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <p-inputMask mask="99/99/9999" class="w-full"></p-inputMask>
-            <label for="float-input">Data de nascimento</label>
-        </span>
-    </div>
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <p-inputMask mask="(99) 9999-9999" class="w-full"></p-inputMask>
-            <label for="float-input">Telefone</label>
-        </span>
-    </div>
-    <div class="field col-12 md:col-2 p-3">
-        <span class="p-float-label">
-            <p-inputMask mask="(99) 99999-9999" class="w-full"></p-inputMask>
-            <label for="float-input">Celular</label>
-        </span>
-    </div>
-</div>
-    <p-fieldset legend="Dados Complementares" [style] = "{'width':'100%'}"  [toggleable]="true">
-        <div class="formgrid grid">  
-            <div class="field col-12 md:col-6 p-3">
-                <span class="p-float-label">
-                    <input type="text" pInputText class="w-full"> 
-                    <label for="float-input" class="obrigatorio">Naturalidade</label>
-                </span>
-            </div>
-          
-                <div class="field col-12 md:col-6 p-3">
-                    <div class="p-inputgroup">
-                     <input disabled type="text" pInputText  placeholder="Endereços">
-                     <button type="button" (click)="AbrirModal()"  pButton pRipple icon="pi pi-search"></button>     
-                    </div>
-                </div>
-
-            <p-dialog 
-                header="Endereços" 
-                [(visible)]="visualizarModal" 
-                [modal]="true" 
-                [style]="{width: '50vw'}"
-                [draggable]="false" 
-                [resizable]="false">
-
-            <div style="text-align: left">
-                <i class=""
-                style="margin:4px 4px 0 0"> </i>
-                <input 
-                type="text" pInputText
-                [style]="{'width': '100%'}"
-                placeholder="Pesquisar"
-                (input)= "myTab.filterGlobal($event.target.value, 'contains')"
-                style="width:fit-content" />
-            </div>
-            <br>
-
-            <p-table 
-            [responsive]="true" 
-            [rows]="8" [paginator]="true" 
-            class="w-100"
-            #myTab [value]="tabelaEnderecos"
-            [scrollable]="false"
-            [(selection)]="tabelaEnderecos"
-            selectionMode="single"
-            [globalFilterFields]="['id', 'nome','naturalidade','telefone1','cnpj']" 
-            [paginator]="true" class="w-100">
-            <ng-template pTemplate="header">
-                   <tr>
-                    <th>ID</th>
-                    <th>CEP</th>
-                    <th>Bairro</th>
-                    <th>Municipio</th>
-                    <th>Telefone</th>
-                    <th class="col-acoes-header"></th>
-                  </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-clientes>
-                  <tr [pSelectableRow]="clientes"  (click)="visualizarModal = false">
-                      <td [style]="{'width': '200px'}">
-                        <span class="p-column-title">ID</span>
-                        {{ clientes.id }}
-                      </td>
-                      <td [style]="{'width': '200px'}">
-                        <span class="p-column-title">CEP</span>
-                        {{ clientes.cep}}
-                      </td>
-  
-                      <td [style]="{'width': '200px'}">
-                        <span class="p-column-title">Bairro</span>
-                        {{ clientes.bairro}}
-                      </td>
-  
-                      <td [style]="{'width': '200px'}">
-                        <span class="p-column-title">Estado</span>
-                        {{ clientes.estado.nomeEstado}}
-                      </td>
-  
-                      <td colspan="9" [style]="{'width': '200px'}">
-                        <span class="p-column-title">Cidade</span>
-                        {{ clientes.cidade.nomeMunicipio}}
-                      </td>
-                   
-                    </tr>
-              </ng-template>
-          <ng-template  pTemplate="emptymessage">
-                <tr>
-                  <td colspan="9">
-                    <span>Nenhum registro encontrado</span>
-                  </td>
-                </tr>
-          </ng-template>
-           <ng-template pTemplate="summary">
-                <div class="">
-                  Totalizador: {{ myTab.totalRecords }}
-                </div>
-           </ng-template>
-      </p-table>
-                    
-
-               
-
-        <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="visualizarModal=false" label="Ok" styleClass="p-button-text"></p-button>
+<p-tabView styleClass="tabview-custom">
+    <p-tabPanel>
+        <ng-template pTemplate="header">
+            <span>Dados iniciais</span>
         </ng-template>
-        </p-dialog>
-                
-        </div>
-    </p-fieldset>
 
-</p-panel>       
-     
+        
+            <div class="formgrid grid">
+
+                <div class="field col-12 md:col-4 p-3">
+                    <p-dropdown [options]="items" placeholder="Regime de tributação" [group]="true">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-8 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">Razão social</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-6 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">Nome Fantasia</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-4 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">E-mail</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-2 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">CNPJ</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-2 p-3">
+                    <span class="p-float-label">
+                        <p-inputMask mask="(99) 9999-9999" class="w-full"></p-inputMask>
+                        <label for="float-input">Celular</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-4 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">E-mail Cobrança</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-4 p-3">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full">
+                        <label for="float-input" class="obrigatorio">E-mail DANFE</label>
+                    </span>
+                </div>
+
+                <div class="field col-12 md:col-2 p-3">
+                    <span class="p-float-label">
+                        <p-inputMask mask="99/99/9999" class="w-full"></p-inputMask>
+                        <label for="float-input">Data de nascimento</label>
+                    </span>
+                </div>
+
+            </div>
+            <p-fieldset legend="Informações fiscais" [style]="{'width':'100%'}" [toggleable]="true">
+                <div class="formgrid grid">
+
+                    <div class="field col-12 md:col-4 p-3">
+                        <p-dropdown [options]="items" placeholder="Situação do ICMS" [group]="true">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Inscrição Estadual</label>
+                        </span>
+                    </div>
+
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Inscrição Municipal</label>
+                        </span>
+                    </div>
+
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Inscrição Suframa</label>
+                        </span>
+                    </div>
+
+                    <div class="field col-12 md:col-2 p-3">
+                        <p-dropdown [options]="items" placeholder="Tabela de Preço" [group]="true">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-6 p-3">
+                        <div class="p-inputgroup">
+                            <input disabled type="text" pInputText placeholder="Transportadora">
+                            <button type="button" (click)="AbrirModal()" pButton pRipple icon="pi pi-plus"></button>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6 p-3">
+                        <div class="p-inputgroup">
+                            <input disabled type="text" pInputText placeholder="Linha do PEF (cliente)">
+                            <button type="button" (click)="AbrirModal()" pButton pRipple icon="pi pi-search"></button>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6 p-3">
+                        <p-dropdown [options]="items" placeholder="Modelo de Frete Padrão" [group]="true">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-6 p-3">
+                        <p-dropdown [options]="items" placeholder="Situação do Cadastro" [group]="true">
+                        </p-dropdown>
+                    </div>
+
+
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Aliquota %</label>
+                        </span>
+                    </div>
+
+                    <div class="field col-12 md:col-6 p-3">
+                        <div class="p-inputgroup">
+                            <input disabled type="text" pInputText placeholder="Endereços">
+                            <button type="button" (click)="AbrirModal()" pButton pRipple icon="pi pi-search"></button>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-4 p-3">
+                        <p-checkbox name="groupname" value="val1" label="ICMS-ST Carga Tributária Média" [(ngModel)]="items"></p-checkbox>
+                        <p-checkbox name="groupname" value="val2" label="Este Cliente é também um fornecedor" [(ngModel)]="items"></p-checkbox>
+                        <p-checkbox name="groupname" value="val3" label="Enviar e-mail informando ao cliente sobre as alterações da situação cadastral para a loja" [(ngModel)]="items"></p-checkbox>
+                    </div>
+
+                    <p-dialog header="Endereços" [(visible)]="visualizarModal" [modal]="true" [style]="{width: '50vw'}"
+                        [draggable]="false" [resizable]="false">
+
+                        <div style="text-align: left">
+                            <i class="" style="margin:4px 4px 0 0"> </i>
+                            <input type="text" pInputText [style]="{'width': '100%'}" placeholder="Pesquisar"
+                                (input)="myTab.filterGlobal($event.target.value, 'contains')"
+                                style="width:fit-content" />
+                        </div>
+                        <br>
+
+                        <p-table 
+                            [responsive]="true" 
+                            [rows]="8" 
+                            [paginator]="true" 
+                            [value]="tabelaEnderecos" 
+                            [scrollable]="false" 
+                            [(selection)]="tabelaEnderecos"
+                            selectionMode="single"
+                            [globalFilterFields]="['id', 'nome','naturalidade','telefone1','cnpj']"
+                            class="w-100" #myTab >
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>CEP</th>
+                                    <th>Bairro</th>
+                                    <th>Municipio</th>
+                                    <th>Telefone</th>
+                                    <th class="col-acoes-header"></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template 
+                            pTemplate="body" let-clientes>
+                                <tr [pSelectableRow]="clientes" (click)="visualizarModal = false">
+                                    <td [style]="{'width': '200px'}">
+                                        <span class="p-column-title">ID</span>
+                                        {{ clientes.id }}
+                                    </td>
+                                    <td [style]="{'width': '200px'}">
+                                        <span class="p-column-title">CEP</span>
+                                        {{ clientes.cep}}
+                                    </td>
+
+                                    <td [style]="{'width': '200px'}">
+                                        <span class="p-column-title">Bairro</span>
+                                        {{ clientes.bairro}}
+                                    </td>
+
+                                    <td [style]="{'width': '200px'}">
+                                        <span class="p-column-title">Estado</span>
+                                        {{ clientes.estado.nomeEstado}}
+                                    </td>
+
+                                    <td colspan="9" [style]="{'width': '200px'}">
+                                        <span class="p-column-title">Cidade</span>
+                                        {{ clientes.cidade.nomeMunicipio}}
+                                    </td>
+
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="9">
+                                        <span>Nenhum registro encontrado</span>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="summary">
+                                <div class="">
+                                    Totalizador: {{ myTab.totalRecords }}
+                                </div>
+                            </ng-template>
+                        </p-table>
+
+                        <ng-template pTemplate="footer">
+                            <p-button icon="pi pi-check" (click)="visualizarModal=false" label="Ok"
+                                styleClass="p-button-text"></p-button>
+                        </ng-template>
+                    </p-dialog>
+                </div>
+            </p-fieldset>
+       
+    </p-tabPanel>
+
+    <p-tabPanel header="Financeiro">
+        <ng-template pTemplate="header">
+            <span>Financeiro</span>
+        </ng-template>
+        <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Nemo enim
+            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+            qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+    </p-tabPanel>
+
+
+
+
+    <p-tabPanel header="Vendedores">
+        <ng-template pTemplate="header">
+            <span>Vendedores</span>
+        </ng-template>
+        <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
+            expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+    </p-tabPanel>
+
+</p-tabView>

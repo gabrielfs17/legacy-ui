@@ -36,6 +36,10 @@ import { CadastroCidadeComponent } from './components/cidade/cadastro-cidade/cad
 import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {DialogModule} from 'primeng/dialog';
+import { StepsModule } from 'primeng/steps';
+import { TabViewModule } from 'primeng/tabview';
+import { CheckboxModule } from 'primeng/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +74,10 @@ import {DialogModule} from 'primeng/dialog';
     ToastModule,
     ConfirmDialogModule,
     FieldsetModule,
-    DialogModule
+    DialogModule,
+    StepsModule,
+    TabViewModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

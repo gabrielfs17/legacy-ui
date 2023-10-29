@@ -12,8 +12,10 @@ import { ClienteService } from '../../services/endereco.service';
 export class CadastroClienteComponent implements OnInit {
 
   items:any = [];
-  cliente: Cliente = new Cliente();
+  steps: any =[];
   tabelaEnderecos:Endereco[]
+
+  cliente: Cliente = new Cliente();
   visualizarModal:boolean;
 
   constructor(
@@ -27,6 +29,7 @@ export class CadastroClienteComponent implements OnInit {
         {label: 'Clientes', routerLink: '/clientes'},
         {label: 'Cadastro', routerLink: '/clientes/cadastro'},
       ];
+      
    }
 
   ngOnInit(): void {
