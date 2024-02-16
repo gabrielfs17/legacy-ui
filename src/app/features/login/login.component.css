@@ -1,0 +1,79 @@
+.container {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  margin-top: 5em;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-form {
+  text-align: center;
+  flex: 1; /* Estica o formulário para ocupar o restante do espaço disponível */
+  padding: 0 20px; /* Adiciona espaçamento interno para o conteúdo do formulário */
+}
+
+.card-image {
+  max-width: 400px; /* Largura máxima da imagem */
+  margin-top: 20px; /* Espaço entre o formulário e a imagem */
+  margin-left: 20px; /* Adiciona margem à esquerda da imagem */
+}
+
+.card-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%; /* Define a largura máxima para ocupar todo o espaço disponível */
+  max-width: 500px; /* Define a largura máxima para evitar que os inputs fiquem muito largos */
+}
+
+.form-group button {
+  width: 100%; /* Define a largura máxima para ocupar todo o espaço disponível */
+  max-width: 300px; /* Define a largura máxima para evitar que o botão fique muito largo */
+  background-color: #427976;
+}
+
+.card-image {
+  width: 100%;
+  max-width: 400px; /* Largura máxima da imagem */
+  margin-top: 20px; /* Espaço entre o formulário e a imagem */
+}
+
+.card-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #427976;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

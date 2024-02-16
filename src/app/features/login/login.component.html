@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="login-content">
+    <div class="card">
+      <div class="login-form">
+        <h1>Estate-UI</h1>
+        <form autocomplete="off" #f="ngForm">
+          <div class="card-image">
+            <img src="\assets\preview.png" alt="as">
+          </div>
+          <div class="form-group">
+            <input pInputText type="text" name="usuario" placeholder="Usuário"[(ngModel)]="userName" required>
+          </div>
+          <div class="form-group">
+            <input pInputText type="password" name="password" placeholder="Senha"  [(ngModel)]="password" required >
+          </div>
+          <div class="form-group">
+            <button  pButton type="submit" label="Login" [disabled]="!f.valid"  (click)="onClickLogin()"></button>
+          </div>
+
+          <div class="form-group">
+            <button pButton type="button" label="{{ 'Register' | translate}}" class="ui-button-raised"
+            [routerLink]="['/register']"></button>
+          </div>
+          <div class="p-col-12 text-center">
+            <a>Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="footer">
+    <p>2024 Jarmison Paiva <span >🏢</span>.</p>
+    <p>Version : {{version}}</p>
+  </div>
+</div>
+
