@@ -1,0 +1,35 @@
+.np-menu {
+    width: 210px; /* Ajuste conforme necessário */
+}
+
+/* Restante do seu CSS */
+.np-menu .np-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.np-menu .np-menu-item {
+    margin-bottom: 5px;
+}
+
+.np-menu .np-menu-item a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.np-menu .np-menu-item a:hover {
+    background-color: #777777;
+}
+
+.np-menu .np-sub-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.np-menu .np-sub-menu li {
+    margin-left: 10px;
+}

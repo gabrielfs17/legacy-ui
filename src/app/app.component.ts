@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       this.theme = theme;
       this.themeService.selectTheme(theme);
     } else {
-      this.theme = "theme-teal";
+      this.theme = "theme-blue";
     }
 
     translate.setDefaultLang('pt');

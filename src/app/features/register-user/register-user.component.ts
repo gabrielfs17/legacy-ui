@@ -43,7 +43,7 @@ export class RegisterUserComponent implements OnInit {
       this.userform.controls["birthDate"].value);
     if (isRegistered) {
       this.router.navigate(['/login']);
-      this.toastService.addSingle("success", "", "User registered.")
+      this.toastService.addSingle("success", "", "Usuário registrado com sucesso.")
     }
   }
 

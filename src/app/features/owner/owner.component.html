@@ -1,0 +1,91 @@
+<app-header-breadcrumb></app-header-breadcrumb>
+<p-panel header="Proprietários">
+    <div class="flex justify-content-between">
+        <h3>Filtros</h3>
+    </div>
+    <div class="p-fluid grid">
+        <div class="field col-12 md:col-4">
+            <div style="text-align: left">
+                <i style="margin:4px 4px 0 0"> </i>
+                <span class="p-float-label">
+                    <input type="text" porNome pInputText (keyup)="applyFilter($event)"
+                        style="width:fit-content" />
+                    <label for="porNome">Nome</label>
+                </span>
+            </div>
+        </div>
+        <div class="field col-12 md:col-4">
+            <div style="text-align: left">
+                <i style="margin:4px 4px 0 0"> </i>
+                <span class="p-float-label">
+                    <input type="text" porCpf pInputText  (keyup)="applyFilter($event)"
+                        style="width:fit-content" />
+                    <label for="porCpf">CPF</label>
+                </span>
+            </div>
+        </div>
+        <div class="field col-12 md:col-4">
+            <div style="text-align: left">
+                <i style="margin:4px 4px 0 0"> </i>
+                <span class="p-float-label">
+                    <input type="text" porProfissao pInputText (keyup)="applyFilter($event)"
+                        style="width:fit-content" />
+                    <label for="porProfissao">Profissão</label>
+                </span>
+            </div>
+        </div>
+    </div>
+    <p-button [style]="{'width': '100%'}" label="Cadastrar" [raised]="true" severity="secondary"></p-button>
+    <br>
+    <div class="card shadow-3 mt-4 mb-4 p-0">
+        <p-table #tabOwner [value]="owners" [paginator]="true" [rows]="pageSize" class="w-100"
+            [globalFilterFields]="['id', 'nome','cpf','profissao']">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-owners>
+                <tr>
+                    <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Código</span>
+                        {{owners.id}}
+                    </td>
+
+                    <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Nome</span>
+                        {{owners.nome}}
+                    </td>
+
+                    <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">CPF</span>
+                        {{owners.cpf}}
+                    </td>
+
+                    <td [style]="{'width': '200px'}">
+                        <span class="p-column-title">Profissão</span>
+                        {{owners.profissao}}
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="12">
+                        <span>Nenhum registro encontrado</span>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="">
+                    Total de registros: {{pageSize}}
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+</p-panel>
