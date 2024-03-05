@@ -35,8 +35,7 @@
             </div>
         </div>
     </div>
-    <p-button [style]="{'width': '100%'}" label="Cadastrar" [raised]="true" severity="secondary"></p-button>
-    <br>
+    <p-button [routerLink]="['register-owner']" [style]="{'width': '100%'}" label="Cadastrar" [raised]="true" severity="secondary"></p-button>    <br>
     <div class="card shadow-3 mt-4 mb-4 p-0">
         <p-table #tabOwner [value]="owners" [paginator]="true" [rows]="pageSize" class="w-100"
             [globalFilterFields]="['id', 'nome','cpf','profissao']">

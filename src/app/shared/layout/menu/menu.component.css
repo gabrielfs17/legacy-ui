@@ -1,8 +1,8 @@
 .np-menu {
-    width: 210px; /* Ajuste conforme necessário */
+    width: 180px; 
 }
 
-/* Restante do seu CSS */
+
 .np-menu .np-menu-list {
     list-style-type: none;
     padding: 0;
