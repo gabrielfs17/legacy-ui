@@ -8,7 +8,7 @@
     <p-tabView [(activeIndex)]="activeIndex">
     <p-tabPanel header="Dados Iniciais">
         <div class="formgrid grid">
-            <div class="field col-12 md:col-8 p-3">
+            <div class="field col-12 md:col-4 p-3">
                 <span class="p-float-label">
                     <input type="text" pInputText class="w-full">
                     <label for="float-input" class="obrigatorio">Nome</label>
@@ -24,6 +24,14 @@
                 <span class="p-float-label">
                     <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
                     <label for="float-input" class="obrigatorio">CPF</label>
+                </span>
+            </div>
+           
+            <div class="field col-12 md:col-4 p-3">
+                <span class="p-float-label">
+                    <p-dropdown [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
+                    [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                    <label for="float-input" class="obrigatorio">Gerenciado por</label>
                 </span>
             </div>
             <div class="field col-12 md:col-2 p-3">
@@ -44,6 +52,106 @@
                     <label for="float-input" class="obrigatorio">Profissão</label>
                 </span>
             </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Natural</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-dropdown [options]="naturalidades"[(ngModel)]="selectedNaturalidade" optionLabel="name" 
+                    [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                    <label for="float-input" class="obrigatorio">Nacionalidade</label>
+                </span>
+            </div>
+            <p-fieldset class="w-full">
+                <ng-template pTemplate="header">
+                    <div class="flex align-items-center gap-2 px-2">
+                        <span class="font-bold">Honorários</span>
+                    </div>
+                </ng-template>
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Administ %</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Venda %</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Primeiro Aluguel %</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Repasse Dias</label>
+                        </span>
+                    </div>
+                </div>
+            </p-fieldset>
+        
+            <p-fieldset>
+                <ng-template pTemplate="header" class="w-full" [style]="{'padding-top': '110px'}">
+                    <div class="flex align-items-center gap-2 px-2">
+                        <span class="font-bold">Endereço</span>
+                    </div>
+                </ng-template>
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-6 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Endereço</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">N°</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Complemento</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">CEP</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Bairro</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <p-dropdown class="w-full" [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
+                            [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                            <label for="float-input" class="obrigatorio">UF</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-3 p-3">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
+                            [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                            <label for="float-input" class="obrigatorio">Cidade</label>
+                        </span>
+                    </div>
+                </div>
+            </p-fieldset>
         </div>
     </p-tabPanel>
     <p-tabPanel header="Contas bancárias">
