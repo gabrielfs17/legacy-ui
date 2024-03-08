@@ -20,6 +20,7 @@
                     <label for="float-input" class="obrigatorio">Código</label>
                 </span>
             </div>
+           
             <div class="field col-12 md:col-2 p-3">
                 <span class="p-float-label">
                     <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
@@ -65,6 +66,20 @@
                     <label for="float-input" class="obrigatorio">Nacionalidade</label>
                 </span>
             </div>
+            <div class="card flex justify-content-center gap-3 field col-12 md:col-11 p-3">
+                <div class="flex align-items-center">
+                    <p-checkbox label="Sexo Feminino" name="feminino" value="feminino" [(ngModel)]="options"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Pessoa Jurídica" name="juridica" value="juridica" [(ngModel)]="options2"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Confidencial" name="confidencial" value="confidencial" [(ngModel)]="options"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Inativo" name="inativo" value="inativo" [(ngModel)]="options"></p-checkbox>
+                </div>
+            </div>
             <p-fieldset class="w-full">
                 <ng-template pTemplate="header">
                     <div class="flex align-items-center gap-2 px-2">
@@ -98,52 +113,54 @@
                     </div>
                 </div>
             </p-fieldset>
-        
+            <p-divider type="solid"><p >Para prosseguir complete os dados abaixo, lembrese de preencher corretamente todos os dados complementares que são obrigátorios.</p></p-divider>
             <p-fieldset>
-                <ng-template pTemplate="header" class="w-full" [style]="{'padding-top': '110px'}">
+                
+                <ng-template pTemplate="header" class="w-full" [style]="{'margin-top': '110px'}">
                     <div class="flex align-items-center gap-2 px-2">
-                        <span class="font-bold">Endereço</span>
+                        <span class="font-bold">Dados complementares</span>
                     </div>
                 </ng-template>
+                
                 <div class="formgrid grid">
-                    <div class="field col-12 md:col-6 p-3">
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
                             <label for="float-input" class="obrigatorio">Endereço</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
-                        <span class="p-float-label">
-                            <input type="text" pInputText class="w-full">
-                            <label for="float-input" class="obrigatorio">N°</label>
-                        </span>
-                    </div>
-                    <div class="field col-12 md:col-3 p-3">
-                        <span class="p-float-label">
-                            <input type="text" pInputText class="w-full">
-                            <label for="float-input" class="obrigatorio">Complemento</label>
-                        </span>
-                    </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
                             <label for="float-input" class="obrigatorio">CEP</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">N°</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Complemento</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
                             <label for="float-input" class="obrigatorio">Bairro</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-2 p-3">
                         <span class="p-float-label">
                             <p-dropdown class="w-full" [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
                             [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
                             <label for="float-input" class="obrigatorio">UF</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <p-dropdown [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
                             [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>

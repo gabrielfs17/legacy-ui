@@ -20,7 +20,8 @@ import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputMaskModule } from 'primeng/inputmask';
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { DividerModule } from 'primeng/divider';
 @NgModule({
     exports: [
         InputTextModule,
@@ -43,7 +44,9 @@ import { InputMaskModule } from 'primeng/inputmask';
         TabViewModule,
         DropdownModule,
         FieldsetModule,
-        InputMaskModule
+        InputMaskModule,
+        CheckboxModule,
+        DividerModule
         
         
     ]

@@ -22,6 +22,8 @@ export class RegisterOwnerComponent implements OnInit {
 
   naturalidades: Naturalidades[] | undefined;
   selectedNaturalidade: Naturalidades[] | undefined;
+  options: [] | undefined
+  options2: [] | undefined
 
   gestores: Gestores[] | undefined;
   selectedGestor: Gestores[] | undefined;
