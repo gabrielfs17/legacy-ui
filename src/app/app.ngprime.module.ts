@@ -22,6 +22,8 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 @NgModule({
     exports: [
         InputTextModule,
@@ -46,7 +48,9 @@ import { DividerModule } from 'primeng/divider';
         FieldsetModule,
         InputMaskModule,
         CheckboxModule,
-        DividerModule
+        DividerModule,
+        InputGroupModule,
+        InputGroupAddonModule
         
         
     ]
