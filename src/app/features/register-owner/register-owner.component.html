@@ -20,6 +20,7 @@
                     <label for="float-input" class="obrigatorio">Código</label>
                 </span>
             </div>
+           
             <div class="field col-12 md:col-2 p-3">
                 <span class="p-float-label">
                     <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
@@ -65,6 +66,20 @@
                     <label for="float-input" class="obrigatorio">Nacionalidade</label>
                 </span>
             </div>
+            <div class="card flex justify-content-center gap-3 field col-12 md:col-11 p-3">
+                <div class="flex align-items-center">
+                    <p-checkbox label="Sexo Feminino" name="feminino" value="feminino" [(ngModel)]="options"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Pessoa Jurídica" name="juridica" value="juridica" [(ngModel)]="options2"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Confidencial" name="confidencial" value="confidencial" [(ngModel)]="options"></p-checkbox>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox label="Inativo" name="inativo" value="inativo" [(ngModel)]="options"></p-checkbox>
+                </div>
+            </div>
             <p-fieldset class="w-full">
                 <ng-template pTemplate="header">
                     <div class="flex align-items-center gap-2 px-2">
@@ -98,76 +113,344 @@
                     </div>
                 </div>
             </p-fieldset>
-        
+            <div class="container">
+                <p class="p-info-align-center">
+                    <strong>
+                        Para prosseguir complete os dados abaixo, 
+                        lembrese de preencher corretamente todos os dados 
+                        complementares que são obrigátorios.
+                    </strong>
+                </p>
+            </div>
             <p-fieldset>
-                <ng-template pTemplate="header" class="w-full" [style]="{'padding-top': '110px'}">
+                
+                <ng-template pTemplate="header" class="w-full" [style]="{'margin-top': '110px'}">
                     <div class="flex align-items-center gap-2 px-2">
-                        <span class="font-bold">Endereço</span>
+                        <span class="font-bold">Dados complementares</span>
                     </div>
                 </ng-template>
+                
                 <div class="formgrid grid">
-                    <div class="field col-12 md:col-6 p-3">
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
                             <label for="float-input" class="obrigatorio">Endereço</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
-                        <span class="p-float-label">
-                            <input type="text" pInputText class="w-full">
-                            <label for="float-input" class="obrigatorio">N°</label>
-                        </span>
-                    </div>
-                    <div class="field col-12 md:col-3 p-3">
-                        <span class="p-float-label">
-                            <input type="text" pInputText class="w-full">
-                            <label for="float-input" class="obrigatorio">Complemento</label>
-                        </span>
-                    </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-2 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
                             <label for="float-input" class="obrigatorio">CEP</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-2 p-3">
                         <span class="p-float-label">
                             <input type="text" pInputText class="w-full">
-                            <label for="float-input" class="obrigatorio">Bairro</label>
+                            <label for="float-input" class="obrigatorio">N°</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <p-dropdown class="w-full" [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
                             [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
                             <label for="float-input" class="obrigatorio">UF</label>
                         </span>
                     </div>
-                    <div class="field col-12 md:col-3 p-3">
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Complemento</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-2 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Bairro</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Celular</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4 p-3">
                         <span class="p-float-label">
                             <p-dropdown [options]="gestores"[(ngModel)]="selectedGestor" optionLabel="name" 
                             [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
                             <label for="float-input" class="obrigatorio">Cidade</label>
                         </span>
                     </div>
+                    <div class="field col-12 md:col-4 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Email</label>
+                        </span>
+                    </div>
+                    <div class="field col-12 md:col-4 p-3">
+                        <span class="p-float-label">
+                            <input type="text" pInputText class="w-full">
+                            <label for="float-input" class="obrigatorio">Recados</label>
+                        </span>
+                    </div>
                 </div>
             </p-fieldset>
         </div>
+        <br>
+        <ng-template pTemplate="footer">
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-4 p-3">
+                  <button (click)="activeIndex = 1"  pButton pRipple type="button" label="Prosseguir" class="p-button-raised p-button-primary p-button-text"></button>
+                </div>
+            </div>
+       </ng-template>  
     </p-tabPanel>
     <p-tabPanel header="Contas bancárias">
-        <p>
-            Contas bancárias works
-        </p>
+    <p-button [routerLink]="['register-owner']" 
+        [style]="{'width': '100%'}" 
+        label="Adicionar Conta" 
+        [raised]="true" 
+        severity="secondary">
+    </p-button>
+        <div class="card shadow-3 mt-4 mb-4 p-0">
+            <p-table #tabContas [value]="contas" [paginator]="true" [rows]="pageSize" [tableStyle]="{ 'min-width': '50rem' }">
+    
+                <ng-template pTemplate="header" class="w-100">
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{col.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="body" let-contas>
+                    <tr>
+                        <td [style]="{'width': '310px'}">
+                            <span class="p-column-title">Código</span>
+                            {{contas.codigo}}
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">Tipo</span>
+                            {{contas.tipo}}
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">Agência</span>
+                            {{contas.agencia}}
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">N° Conta</span>
+                            {{contas.nConta}}
+                        </td>
+                        <td [style]="{'width': '310px'}">
+                            <span class="p-column-title">Favorecido</span>
+                            {{contas.favorecido}}
+                        </td>
+                        
+                      <td class="col-acoes p-1 justify-content-between">
+                        <a pButton pRipple type="button" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-info p-button-text"
+                        [routerLink]="['/contas', contas.codigo]"></a>
+                        <button pButton pRipple icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-danger p-button-text"
+                        ></button>
+                      </td>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">
+                            <span>Nenhum registro encontrado</span>
+                        </td>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="summary">
+                    <div class="">
+                        Total de registros: {{pageSize}}
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="container-left">
+            <p class="p-info-align-left">
+                <strong>
+                    Consultar dados complementares. 
+                </strong>
+            </p>
+        </div>
+
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-4 p-3">
+               <span class="p-float-label">
+                  <input type="password" pInputText class="w-full">
+                  <label for="float-input" class="obrigatorio">Site Senha</label>
+               </span>
+           </div>
+       </div>
+       <ng-template pTemplate="footer">
+           <div class="formgrid grid">
+               <div class="field col-12 md:col-4 p-3">
+                 <button (click)="activeIndex = 2"  pButton pRipple type="button" label="Prosseguir" class="p-button-raised p-button-primary p-button-text"></button>
+               </div>
+           </div>
+      </ng-template>
     </p-tabPanel>
     <p-tabPanel header="Cônjuge">
-        <p>
-            Cônjuge-works
-        </p>
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-4 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Nome</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Profissão</label>
+                </span>
+            </div>
+           
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="999.999.999-99" class="w-full"></p-inputMask>
+                    <label for="float-input" class="obrigatorio">CPF</label>
+                </span>
+            </div>
+           
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="99.999.999-9" class="w-full"></p-inputMask>
+                    <label for="float-input" class="obrigatorio">RG</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-inputMask mask="99/99/9999" class="w-full"></p-inputMask>
+                    <label for="float-input" class="obrigatorio">Nascimento</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Regime de bens</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Certidão de casamento</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <input type="text" pInputText class="w-full">
+                    <label for="float-input" class="obrigatorio">Natural</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-2 p-3">
+                <span class="p-float-label">
+                    <p-dropdown [options]="naturalidades"[(ngModel)]="selectedNaturalidade" optionLabel="name" 
+                    [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                    <label for="float-input" class="obrigatorio">Nacionalidade</label>
+                </span>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-4 p-3">
+                  <button (click)="activeIndex = 3"  pButton pRipple type="button" label="Prosseguir" class="p-button-raised p-button-primary p-button-text"></button>
+                </div>
+            </div>
+       </ng-template>
     </p-tabPanel>
     <p-tabPanel header="Histórico">
-        <p>
-            Histórico-works
-        </p>
+        <div class="p-fluid grid">
+            <div class="field col-12 md:col-4">
+                <div style="text-align: left">
+                    <i style="margin:4px 4px 0 0"> </i>
+                    <span class="p-float-label">
+                        <p-dropdown [options]="naturalidades"[(ngModel)]="selectedNaturalidade" optionLabel="name" 
+                    [showClear]="true" placeholder="Selecione uma das opções"></p-dropdown>
+                    <label for="float-input" class="obrigatorio">Exibir histórico de </label>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-3 mt-4 mb-4 p-0">
+            <p-table #tabProprietario [value]="contas" [paginator]="true" [rows]="pageSize" [tableStyle]="{ 'min-width': '50rem' }">
+    
+                <ng-template pTemplate="header" class="w-100">
+                    <tr>
+                        <th *ngFor="let col of columnsHistorico">
+                            {{col.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="body" let-historico>
+                    <tr>
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">Tipo Propriétario cod</span>
+                           
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">Tipo Endereço</span>
+                            
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">N°</span>
+                            
+                        </td>
+    
+                        <td [style]="{'width': '300px'}">
+                            <span class="p-column-title">N° Conta</span>
+                            
+                        </td>
+                        <td [style]="{'width': '310px'}">
+                            <span class="p-column-title">Complemento</span>
+                            
+                        </td>
+
+                        
+                      <td class="col-acoes p-1 justify-content-between">
+                        <a pButton pRipple type="button" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-info p-button-text"
+                        [routerLink]="['/contas', historico.codigo]"></a>
+                        <button pButton pRipple icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                        styleClass="p-button-sm" class="p-button-raised p-button-danger p-button-text"
+                        ></button>
+                      </td>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">
+                            <span>Nenhum registro encontrado</span>
+                        </td>
+                    </tr>
+                </ng-template>
+    
+                <ng-template pTemplate="summary">
+                    <div class="">
+                        Total de registros: {{pageSize}}
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+        <ng-template pTemplate="footer">
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-4 p-3">
+                  <button   pButton pRipple type="button" label="Cadastrar" class="p-button-raised p-button-primary p-button-text"></button>
+                </div>
+            </div>
+       </ng-template>
     </p-tabPanel>
 
     </p-tabView>
